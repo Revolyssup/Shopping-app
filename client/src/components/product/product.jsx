@@ -1,5 +1,5 @@
 import React from 'react'
-
+import "./product.css"
 const Product=props=>{
     return(
         <div className="Product-wrapper">

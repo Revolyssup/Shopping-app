@@ -1,6 +1,6 @@
 //connected component as addtocart action will be dispatched through here
 import React from 'react'
-
+import "./products.css"
 //importing product component
 import Product from '../product/product'
 
@@ -16,11 +16,17 @@ const Products=props=>{
     })
     
     return(
-        <div className="Products-container">
-                <div>I am in homepage</div>
+        <div>
+            <h1>Happy shopping!!</h1>
+            <div className="Products-container">
+                <div className="Products-wrapper">
                 {productlist}
+                </div>
+                
             
         </div>
+        </div>
+        
     )
 }
 

@@ -1,4 +1,5 @@
 import React,{Fragment} from 'react'
+import "./cart.css"
 import PropTypes from 'prop-types'
 
 
@@ -7,19 +8,21 @@ const CartItem=props=>{
         <Fragment>
             <tr>
                 <td>
-                  <image src={props.photo}></image>
+                    {" "}
+                     <image className="Cart-Item-Photo" src={props.photo}  alt={props.name}></image>
+                     {" "}
                 </td>
                 <td>{props.name}</td>
                 <td>
-                    <button className="button-quant" onClick={props.addItem}>
+                    <button  onClick={props.addItem} className="Quantity-Button">
                         +
                     </button>
                     <span>
                     {props.quantity}
-                    <button className="button-quant" onClick={props.removeItem}> 
+                    </span>
+                    <button  onClick={props.removeItem} className="Quantity-Button"> 
                         -
                     </button>
-                    </span>
                     </td>
                 <td>{props.price}</td>
                 <td className="fa fa-times" onClick={props.removeWholeItem} style={{ color: 'red', cursor: 'pointer' }}> DELETE :(</td>

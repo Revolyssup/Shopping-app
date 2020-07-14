@@ -1,6 +1,6 @@
 //connected component as it accesses cart to decribe cart in navbar
 import React from 'react'
-
+import "./navbar.css"
 import {connect} from 'react-redux'
 
 import {Link} from 'react-router-dom'
@@ -16,12 +16,12 @@ const totalPrice = cart =>
             
   };
 const Navbar=props=>(
-    <nav>
+    <nav className="NavBar-Wrapper">
         <div>
-            <Link to="/"><p>Shop</p></Link>
+            <Link to="/"><p className="shop">Shop</p></Link>
         </div>
         <Link to="/cart">
-            <div>
+            <div className="Cart-Info">
                 <span className="Cart-Item-Counter">{props.cart.length}</span>
                 <i className="fa fa-shopping-bag"></i>
                 <p>Cart: ${totalPrice(props.cart)}</p>

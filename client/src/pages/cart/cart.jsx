@@ -4,6 +4,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {addToCart,deleteFromCart,deleteWholeItem} from '../../store/actions/cart'
 
+import "./cart.css"
 import { Link } from 'react-router-dom'
 import BuySomething from '../../ui/BuySomething/BuySomething'
 import CartItem from '../../components/cart/CartItem'
@@ -22,6 +23,7 @@ class Cart extends Component{
  
     render(){
         
+        if(!this.props.cart.length) return <BuySomething />
         const cartItems=sort(this.props.cart).map((item,i)=>(
             <CartItem 
             key={i}
@@ -37,10 +39,10 @@ class Cart extends Component{
 
         return(
             <div>
-                <h1>My Cart</h1>
+                <h1 className="My-Cart-Title">My Cart</h1>
                 
-                <div>
-                    <table>
+                <div className="Cart-Products-Wrapper">
+                    <table className="Cart-Table">
                         <thead>
                             <tr>
                                 <th>Photo</th>
@@ -64,9 +66,11 @@ class Cart extends Component{
                                 <td />
                                 <td />
                                 <td>
-                                     <p className="totalPrice" >${totalPrice(this.props.cart)}</p>
-                                     <Link to="/checkout" className="checkout">
-                                         <div>
+                                     <p className="Total-Price" >${totalPrice(this.props.cart)}</p>
+                                     <Link to="/checkout"
+                                     className="Checkout-Button-Text">
+                                     
+                                         <div  className="Checkout-Button">
                                              Checkout
                                          </div>
                                      </Link>
