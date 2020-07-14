@@ -5,7 +5,7 @@ const Product=props=>{
         <div className="Product-wrapper">
             <div className="Product">
                 <div className="Product-image">
-
+                    <img src={props.photo}></img>
                 </div> 
                 <div className="Product-name">
                     {props.name}

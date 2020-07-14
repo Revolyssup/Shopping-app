@@ -2,7 +2,11 @@ import React from 'react'
 const BuySomething=props=>{
     return(
         <div>
-           You have nothing in cart. Buy something
+            <h1 className="recieved">All previous orders recieved</h1>
+            <h2 className="back">
+            You have nothing in cart.
+            </h2>
+           
         </div>
     )
 }
