@@ -6,12 +6,13 @@ const Orders=require('../models/order')
 
 
 
-
+//To populate redux store with products
 router.get('/api/products', async (req,res)=>{
     const products= await Products.find({});
     res.json({products});
 })
 
+//To save new orders on database
 router.post('/api/orders',async (req,res)=>{
     const order=new Orders(req.body)
     order.save((err,data)=>{

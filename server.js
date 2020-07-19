@@ -10,7 +10,9 @@ const PORT= process.env.PORT || 5000
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
 
+
 app.use(express.static('client/build'))
+
 //Routes
 app.use("/",require('./routes/route'))
 
@@ -18,5 +20,5 @@ app.use("/",require('./routes/route'))
 
 
 app.listen(PORT,()=>{
-        console.log(`Server Started on port ${PORT}`)
+        console.log(`Server Started on port ${PORT}`) 
 })
