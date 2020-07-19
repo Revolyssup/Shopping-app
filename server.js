@@ -10,17 +10,12 @@ const PORT= process.env.PORT || 5000
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
 
+app.use(express.static('client/build'))
 //Routes
-app.use("/api/products",require('./routes/route'))
-app.use("/api/orders",require('./routes/route'))
+app.use("/",require('./routes/route'))
 
 
-//production
-    // app.use(express.static('.client/build'));
-    // app.get('*', (req, res) => {
-    //     res.sendfile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-    //   }); 
-    // }
+
 
 app.listen(PORT,()=>{
         console.log(`Server Started on port ${PORT}`)
