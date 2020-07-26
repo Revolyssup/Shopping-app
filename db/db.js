@@ -3,7 +3,7 @@ const db=require('mongoose')
 
 const URI=process.env.URI
 console.log(process.env.URI)
-//connection
+//connection 
 db.connect(URI,{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true});
 
 //Validation

@@ -20,7 +20,7 @@ const orderSchema= new Schema({
         required:true
     },
     orders:{
-        type:Object,
+        type:Array,
         required:true
     }
 })

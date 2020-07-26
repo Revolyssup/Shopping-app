@@ -4,7 +4,7 @@ const path=require('path')
 const Products=require('../models/model')
 const Orders=require('../models/order')
 
-
+ 
 
 //To populate redux store with products
 router.get('/api/products', async (req,res)=>{

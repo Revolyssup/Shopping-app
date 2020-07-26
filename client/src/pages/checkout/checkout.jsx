@@ -34,7 +34,7 @@ class Checkout extends Component{
     }
 
     
-
+  
     emptycart=(e)=>{
         axios.post('/api/orders',{...this.state, orders:this.props.cart}).then((res)=>console.log(res))
         console.log(this.state)
