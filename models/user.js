@@ -8,22 +8,22 @@ const orderSchema= new Schema({
         required:true
     },
     email:{
-        type:String,
-        required:true
+        type:String
     },
     address:{
-        type:String,
-        required:true
+        type:String
     },
     phone:{
-        type:String,
-        required:true
+        type:String
     },
     orders:{
-        type:Array,
+        type:Array
+    },
+    password:{
+        type:String,
         required:true
     }
 })
 
 
-module.exports=db.model('orders',orderSchema)
+module.exports=db.model('users',orderSchema)

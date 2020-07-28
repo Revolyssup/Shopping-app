@@ -1,14 +1,31 @@
 import {STORE_CRED} from '../actions/types'
 import axios from 'axios'
-export const storeCred=()=>async dispatch=>{
-    try {
-        const res=await axios.get("/api/verify")
-        console.log(res)
-        dispatch({
-            type:STORE_CRED,
-            payload:res.data.cred
-        })
-    } catch (err) {
-        console.log(err)
+export const login=(data,first)=>async (dispatch)=>{
+    
+    if(first){
+        try {
+            const res=await axios.post("/auth/signup",data)
+            dispatch({
+                type:STORE_CRED,
+                payload:res
+            })
+        } catch (err) {
+            console.log(err)
+        }
     }
+    else{
+        try {
+            const res=await axios.post("/auth/login",data)
+            dispatch({
+                type:STORE_CRED,
+                payload:res
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    }
+    
 }
+// export const login=data=>{
+//     console.log(data)
+// }

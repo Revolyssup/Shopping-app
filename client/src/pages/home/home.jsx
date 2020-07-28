@@ -12,7 +12,9 @@ import {connect} from 'react-redux'
 
 class Home extends Component{
    componentDidMount(){
-      this.props.fetchProducts();
+       let cred=this.props.cred
+       console.log(cred.accessToken)
+      this.props.fetchProducts(cred.accessToken);
     }
 
     render(){
@@ -27,6 +29,7 @@ class Home extends Component{
 
 const mapStateToProps=(state)=>({
     products:state.products,
+    cred:state.cred
 }
 )
 
