@@ -3,8 +3,7 @@ import axios from "axios"
 import {connect} from 'react-redux'
 import {emptyCart} from '../../store/actions/cart'
 import BuySomething from '../../ui/BuySomething/BuySomething'
-import Modal from 'react-modal'
-import "./checkout.css"
+import "./checkout.css" 
 
 const customStyles = {
     content: {
@@ -22,28 +21,30 @@ class Checkout extends Component{
     componentDidMount(){
         console.log(this.props.cart)
     }
-    state={
-        name:"you",
-        email:"",
-        address:"",
-        phone:""
-    }
-
-    onChangeHandler=(e)=>{
-        this.setState({[e.target.name]:e.target.value})
-    }
 
     
-
+  
     emptycart=(e)=>{
-        axios.post('/api/orders',{...this.state, orders:this.props.cart}).then((res)=>console.log(res))
-        console.log(this.state)
+        
+        //for first time users
+        if(this.props.cred.orders){
+            axios.post('/api/orders',{...this.props.cred,orders:[...this.props.cred.orders,...this.props.cart]},{headers:{
+                'x-token': this.props.cred.accessToken
+            }})
+        }
+        //for users fetched from mongodb
+        else{
+            axios.post('/api/orders',{...this.props.cred._doc.orders,orders:[...this.props.cred._doc.orders,...this.props.cart]},{headers:{
+                'x-token': this.props.cred.accessToken
+            }})
+        }
+        
         this.props.emptyCart();
        
     }
+    
    
-   
- 
+    
     render(){
 
         if(!this.props.cart.length) return <BuySomething />
@@ -82,16 +83,16 @@ class Checkout extends Component{
                     </table>
                     
                 </div>
-               <form className="Checkout-Wrapper">
+               {/* <form className="Checkout-Wrapper">
                <h1 className="Checkout-Title">Checkout</h1>
                   <input type="text" className="Checkout-Input" name="name" placeholder="Enter Name" onChange={this.onChangeHandler}/>
                   <input type="text" className="Checkout-Input" name="email" placeholder="Enter Email" onChange={this.onChangeHandler}/>
                   <input type="text" className="Checkout-Input" name="address" placeholder="Enter Address" onChange={this.onChangeHandler}/>
                   <input type="text" className="Checkout-Input" name="phone" placeholder="Enter Contact no." onChange={this.onChangeHandler}/>
-                  <button className="button" onClick={this.emptycart} >Buy Now</button>
-               </form>
+                  
+               </form> */}
                
-                
+               <button className="button" onClick={this.emptycart} >Buy Now</button>
               
             </div>
            
@@ -100,7 +101,8 @@ class Checkout extends Component{
 }
 const mapStateToProps=state=>(
     {
-        cart:state.cart
+        cart:state.cart,
+        cred:state.cred
     }
 )
     

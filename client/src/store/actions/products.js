@@ -1,8 +1,11 @@
 import {FETCH_PRODUCTS} from '../actions/types'
 import axios from 'axios'
-export const fetchProducts=()=> async dispatch=>{
+export const fetchProducts=(at)=> async dispatch=>{
     try {
-        const res= await axios.get("/api/products ");
+        console.log(at)
+        const res= await axios.get("/api/products",{"headers":{
+            "X-token":at
+        }});
         console.log(res.data.products)
         dispatch({
             type:FETCH_PRODUCTS,
