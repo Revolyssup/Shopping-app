@@ -83,14 +83,7 @@ class Checkout extends Component{
                     </table>
                     
                 </div>
-               {/* <form className="Checkout-Wrapper">
-               <h1 className="Checkout-Title">Checkout</h1>
-                  <input type="text" className="Checkout-Input" name="name" placeholder="Enter Name" onChange={this.onChangeHandler}/>
-                  <input type="text" className="Checkout-Input" name="email" placeholder="Enter Email" onChange={this.onChangeHandler}/>
-                  <input type="text" className="Checkout-Input" name="address" placeholder="Enter Address" onChange={this.onChangeHandler}/>
-                  <input type="text" className="Checkout-Input" name="phone" placeholder="Enter Contact no." onChange={this.onChangeHandler}/>
-                  
-               </form> */}
+           
                
                <button className="button" onClick={this.emptycart} >Buy Now</button>
               

@@ -7,7 +7,6 @@ const app=express()
 app.use("/api",Authorization)
 //setting up database
 require('./db/db')
-const PORT= process.env.PORT || 3000
 
 app.use(bodyParser.json()) 
 app.use(bodyParser.urlencoded({extended:false}))
@@ -20,6 +19,6 @@ app.use("/",require('./routes/route'))
 
 
 
-app.listen(PORT,()=>{
-        console.log(`Server Started on port ${PORT}`) 
+app.listen(process.env.PORT || 3000,()=>{
+        console.log(`Server Started `) 
 })

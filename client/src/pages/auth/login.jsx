@@ -3,7 +3,7 @@ import { useState } from 'react'
 import {login} from '../../store/actions/creden'
 import {useHistory} from 'react-router-dom'
 import {connect} from 'react-redux'
-
+import "./login.css"
 
 const Login =props=>{
     let history=useHistory()
@@ -60,7 +60,7 @@ const Login =props=>{
 
         return(
             <div className="container">
-                <div className="login">
+                <div className="container">
                     <h1>Login</h1>
                     <form>
                         <input  placeholder="Enter Name" type="text" onChange={onChangeName}></input>
@@ -68,7 +68,7 @@ const Login =props=>{
                         <button className="button" onClick={onsubmitLogin}></button>
                     </form>
                 </div>
-                <div className="signup">
+                <div className="container">
                 <h1>Signup</h1>
                 <form>
                 <input placeholder="Enter name" type="text" onChange={onChangeName}></input>
