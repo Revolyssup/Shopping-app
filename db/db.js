@@ -1,7 +1,7 @@
 require('dotenv').config()
 const db=require('mongoose')
 
-const URI=process.env.URI
+const URI=process.env['URI']
 console.log(process.env.URI)
 //connection 
 db.connect(URI,{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true});

@@ -18,7 +18,8 @@ router.get('/api/products', async (req,res)=>{
 //To save new orders on database
 router.post('/api/orders',async (req,res)=>{
    
-    const _id=req.verify._id
+    const _id=req.verify._id;
+    console.log(_id);
     Users.findOneAndUpdate(_id,req.body,(err,docs)=>{
         if(err) console.log(err)
         else console.log("updated user:",docs)

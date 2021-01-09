@@ -43,6 +43,7 @@ const Login =props=>{
         'phone': phone,
         'password': password
     }
+    console.log(cred)
      await props.login(cred,true)
      history.push('/')      
      
@@ -54,29 +55,29 @@ const Login =props=>{
         'name':name,
         'password':password
        } 
+       console.log(cred)
        await props.login(cred,false)
        history.push('/')
     }
 
         return(
             <div className="container">
-                <div className="container">
-                    <h1>Login</h1>
+                <div className="login">
                     <form>
                         <input  placeholder="Enter Name" type="text" onChange={onChangeName}></input>
                         <input  placeholder="Enter password" type="password" onChange={onChangePassword}></input>
-                        <button className="button" onClick={onsubmitLogin}></button>
+                        <button className="button" onClick={onsubmitLogin}>Login</button>
                     </form>
                 </div>
-                <div className="container">
-                <h1>Signup</h1>
+                <div className="signup">
+                <br></br>
                 <form>
                 <input placeholder="Enter name" type="text" onChange={onChangeName}></input>
                 <input placeholder="Enter Email-id" type="text" onChange={onChangeEmail}></input>
                 <input placeholder="Enter Address" type="text"  onChange={()=>onChangeAddress}></input>
                 <input placeholder="Enter phone number" type="text"  onChange={onChangePhone}></input>
                 <input placeholder="Enter Password" type="password"  onChange={onChangePassword}></input>
-                <button className="button" onClick={onsubmitSignup}></button>
+                <button className="button" onClick={onsubmitSignup}>Signup</button>
                 </form>
                 </div>
             </div>

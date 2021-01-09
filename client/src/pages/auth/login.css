@@ -1,15 +1,16 @@
-button {
+
+.button {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
-    border: none;
+    border: 1px #ccc solid;
     cursor: pointer;
-    width: 100%;
+    width: 25%;
   }
 
   input[type=text], input[type=password] {
-    width: 100%;
+    width: 30%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -17,7 +18,7 @@ button {
     box-sizing: border-box;
   }
 
-  button:hover {
+  .button:hover {
     opacity: 0.8;
   }
 

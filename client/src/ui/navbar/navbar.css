@@ -1,10 +1,10 @@
 .NavBar-Wrapper {
-    background-color: #a864a8;
-    height: 70px;
-    display: flex;
-    justify-content: space-around;
-    padding: 1.5rem;
-    font-size: 14px;
+  background-color: #a864a8;
+  height: 70px;
+  display: flex;
+  justify-content: space-around;
+  padding: 1.5rem;
+  font-size: 14px;
   }
   
   .Cart-Info {
@@ -35,3 +35,7 @@
       background-color: blueviolet;
       transform: scale(1.1);
   }
+  .Cart-Info:hover{
+    background-color: blueviolet;
+    transform: scale(1.1);
+}

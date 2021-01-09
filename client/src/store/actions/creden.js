@@ -4,7 +4,8 @@ export const login=(data,first)=>async (dispatch)=>{
     
     if(first){
         try {
-            const res=await axios.post("/auth/signup",data)
+            const res=await axios.post("/auth/signup",data);
+            localStorage.setItem("jwt",res.data.accessToken);
             dispatch({
                 type:STORE_CRED,
                 payload:res
@@ -15,7 +16,8 @@ export const login=(data,first)=>async (dispatch)=>{
     }
     else{
         try {
-            const res=await axios.post("/auth/login",data)
+            const res=await axios.post("/auth/login",data); 
+            localStorage.setItem("jwt",res.data.accessToken);
             dispatch({
                 type:STORE_CRED,
                 payload:res

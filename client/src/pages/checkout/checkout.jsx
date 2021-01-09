@@ -28,14 +28,15 @@ class Checkout extends Component{
         
         //for first time users
         if(this.props.cred.orders){
+            // console.log(localStorage.getItem("jwt"));
             axios.post('/api/orders',{...this.props.cred,orders:[...this.props.cred.orders,...this.props.cart]},{headers:{
-                'x-token': this.props.cred.accessToken
+                "x-token":localStorage.getItem("jwt")
             }})
-        }
+        }   
         //for users fetched from mongodb
         else{
             axios.post('/api/orders',{...this.props.cred._doc.orders,orders:[...this.props.cred._doc.orders,...this.props.cart]},{headers:{
-                'x-token': this.props.cred.accessToken
+                "x-token":localStorage.getItem("jwt")
             }})
         }
         
