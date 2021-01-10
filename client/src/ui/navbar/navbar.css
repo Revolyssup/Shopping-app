@@ -1,6 +1,6 @@
 .NavBar-Wrapper {
   background-color: #a864a8;
-  height: 70px;
+  height: 120px;
   display: flex;
   justify-content: space-around;
   padding: 1.5rem;
@@ -26,15 +26,44 @@
     left: 13px;
   }
 
-  .shop{
-    background-color: #fff;
+  .navbutton{
+    border-radius: 4px;
+    background-color: #7b1aa1;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  .navbutton span{
+    cursor: pointer;
+    display: inline-block;
     position: relative;
+    transition: 0.5s;
   }
 
-  .shop:hover{
-      background-color: blueviolet;
-      transform: scale(1.1);
+.navbutton span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+  .navbutton:hover span{
+    padding-right: 25px;
   }
+
+
+.navbutton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
   .Cart-Info:hover{
     background-color: blueviolet;
     transform: scale(1.1);

@@ -17,7 +17,7 @@ const Products=props=>{
     
     return(
         <div>
-            <h1>Happy shopping!!</h1>
+            <h1 className="banner">Happy shopping!!</h1>
             <div className="Products-container">
                 <div className="Products-wrapper">
                 {productlist}

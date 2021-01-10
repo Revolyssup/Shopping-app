@@ -27,15 +27,16 @@ class Checkout extends Component{
     emptycart=(e)=>{
         
         //for first time users
+        console.log(this.props.cart)
         if(this.props.cred.orders){
             // console.log(localStorage.getItem("jwt"));
-            axios.post('/api/orders',{...this.props.cred,orders:[...this.props.cred.orders,...this.props.cart]},{headers:{
+            axios.post('/api/orders',{...this.props.cred,orders:[...this.props.cart]},{headers:{
                 "x-token":localStorage.getItem("jwt")
             }})
         }   
         //for users fetched from mongodb
         else{
-            axios.post('/api/orders',{...this.props.cred._doc.orders,orders:[...this.props.cred._doc.orders,...this.props.cart]},{headers:{
+            axios.post('/api/orders',{...this.props.cred,orders:[...this.props.cart]},{headers:{
                 "x-token":localStorage.getItem("jwt")
             }})
         }

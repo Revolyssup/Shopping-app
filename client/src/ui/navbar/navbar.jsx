@@ -18,15 +18,26 @@ const totalPrice = cart =>
 const Navbar=props=>(
     <nav className="NavBar-Wrapper">
         <div>
-            <Link to="/"><p className="shop">Shop</p></Link>
+            <Link to="/" className="navbutton"><span>Shop</span></Link>
         </div>
-        <Link to="/cart">
-            <div className="Cart-Info">
-                <span className="Cart-Item-Counter">{props.cart.length}</span>
-                <i className="fa fa-shopping-bag"></i>
-                <p>Cart: ${totalPrice(props.cart)}</p>
-            </div>
-        </Link>
+        <div>
+            <Link to="/cart" className="navbutton">
+                
+                    <span>
+                    <span >{props.cart.length}</span>
+                    <i className="fa fa-shopping-bag"></i>
+                    <p>Cart: ${totalPrice(props.cart)}</p>
+                    </span>
+
+                
+            </Link>
+        </div>
+        <div>
+            <Link to="/login" className="navbutton">
+            <span>Logout</span>
+            </Link>
+        </div>
+
     </nav>
 )
 const mapStateToProps=state=>(
