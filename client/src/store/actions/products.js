@@ -4,7 +4,7 @@ export const fetchProducts=(at)=> async dispatch=>{
     try {
         console.log(at)
         const res= await axios.get("/api/products",{"headers":{
-            "X-token":at
+            "x-token":localStorage.getItem("jwt")
         }});
         console.log(res.data.products)
         dispatch({
