@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  load_balancer:
+    image: haproxy
+    ports: 
+      - "3000:8080"
+    volumes:
+      - ./haproxy:/usr/local/etc/haproxy
+  
+
+  app1:
+    image: revoly/myapp
+    environment:
+      - ID=1000
+  
+  app2:
+    image: revoly/myapp
+    environment:
+      - ID=2000
+
+  app3:
+    image: revoly/myapp
+    environment:
+      - ID=3000
+
+  app4:
+    image: revoly/myapp
+    environment:
+      - ID=4000
