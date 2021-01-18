@@ -2,11 +2,16 @@ version: '3'
 
 services:
   load_balancer:
-    image: haproxy
+    # image: haproxy
+    # ports: 
+    #   - "3000:8080"
+    # volumes:
+    #   - ./haproxy:/usr/local/etc/haproxy
+    image: nginx
     ports: 
       - "3000:8080"
     volumes:
-      - ./haproxy:/usr/local/etc/haproxy
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf  
   
 
   app1:
